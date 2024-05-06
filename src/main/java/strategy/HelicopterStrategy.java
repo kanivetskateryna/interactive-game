@@ -5,12 +5,24 @@ import org.springframework.context.ApplicationContext;
 import reader.impl.UserChoiceReader;
 import visitor.NodeVisitor;
 
+/**
+ * A {@code HelicopterStrategy} implements the {@link PlotChoiceStrategy} for scenarios involving a helicopter.
+ * This class manages the narrative branches based on user choices within a helicopter scenario, directing the narrative
+ * towards different outcomes such as ending the plot or moving onto other decisions related to equipment and strategies.
+ */
 public class HelicopterStrategy implements PlotChoiceStrategy {
 
     private final ApplicationContext applicationContext;
     private final PlotChoiceStrategy dressUpWithoutFirstAidKitStrategy;
     private final PlotChoiceStrategy pickThingsUpWithFirstAidKitStrategy;
 
+    /**
+     * Constructs a new {@code HelicopterStrategy} with specified strategies for different plot choices.
+     *
+     * @param applicationContext the context for accessing beans needed within the strategy
+     * @param dressUpWithoutFirstAidKitStrategy the strategy to execute when choosing to proceed without a first aid kit
+     * @param pickThingsUpWithFirstAidKitStrategy the strategy to execute when choosing to pick things up with a first aid kit
+     */
     public HelicopterStrategy(ApplicationContext applicationContext,
                               PlotChoiceStrategy dressUpWithoutFirstAidKitStrategy,
                               PlotChoiceStrategy pickThingsUpWithFirstAidKitStrategy) {
@@ -19,6 +31,14 @@ public class HelicopterStrategy implements PlotChoiceStrategy {
         this.pickThingsUpWithFirstAidKitStrategy = pickThingsUpWithFirstAidKitStrategy;
     }
 
+    /**
+     * Executes the helicopter plot strategy by directing the narrative through various nodes based on user input.
+     * This method facilitates the interaction with different plot nodes like helicopterNode, walkieTalkieNode, and endNode,
+     * managing user choices to guide the subsequent plot developments.
+     *
+     * @param visitor a {@code NodeVisitor} used to visit and process nodes within the plot
+     * @param userChoiceReader a {@code UserChoiceReader} used to read user choices and guide the plot flow
+     */
     @Override
     public void execute(NodeVisitor visitor, UserChoiceReader userChoiceReader) {
         TreeNode helicopterNode = applicationContext.getBean("helicopterNode", TreeNode.class);
@@ -45,3 +65,4 @@ public class HelicopterStrategy implements PlotChoiceStrategy {
         }
     }
 }
+

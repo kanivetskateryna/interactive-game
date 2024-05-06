@@ -6,15 +6,33 @@ import org.springframework.stereotype.Component;
 import reader.impl.UserChoiceReader;
 import visitor.NodeVisitor;
 
+/**
+ * A specific {@link PlotChoiceStrategy} implementation for handling scenarios involving
+ * the decision to pick things up while equipped with a first aid kit.
+ * This strategy outlines the decision paths and results based on user choices within the scenario.
+ */
 @Component
 public class PickThingsUpWithFirstAidKitStrategy implements PlotChoiceStrategy {
 
     private final ApplicationContext applicationContext;
 
+    /**
+     * Constructs a new strategy using the specified application context to access necessary beans.
+     *
+     * @param applicationContext the {@link ApplicationContext} used for accessing beans by name
+     */
     public PickThingsUpWithFirstAidKitStrategy(ApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
     }
 
+    /**
+     * Executes the plot choice strategy using a node visitor and a user choice reader.
+     * This method guides the user through a series of nodes, each representing a part of the narrative,
+     * and manages user choices to determine the subsequent path in the scenario.
+     *
+     * @param visitor the {@code NodeVisitor} used to visit each node and process it accordingly
+     * @param userChoiceReader the {@code UserChoiceReader} used to capture and process user decisions
+     */
     @Override
     public void execute(NodeVisitor visitor, UserChoiceReader userChoiceReader) {
         TreeNode pickThingsUpNode = applicationContext.getBean("pickThingsUpNode", TreeNode.class);
@@ -41,3 +59,4 @@ public class PickThingsUpWithFirstAidKitStrategy implements PlotChoiceStrategy {
         }
     }
 }
+

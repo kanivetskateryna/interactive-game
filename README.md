@@ -1,18 +1,14 @@
 # Interactive Fiction Game
 
 ## Topic
-Develop an interactive fiction game using learned design patterns.
+Develop an interactive fiction game using design patterns.
 
 ## Format
-- Duration: 5-6 weeks
-- First stage: Come up with a plot, characters, ending options.
-- Second stage: Design the skeleton (framework) of the application, ensure its viability.
-- Final stage: Implement all functions of the program and present it to the lecturer and other students.
-- Mandatory use of learned patterns to get all points.
+- A plot, characters, ending options.
+- Designed the skeleton (framework) of the application.
 
 ## Project Requirements
 - Design a class system necessary for the implementation of the program.
-- Implement the program using one of the languages: Java/JavaScript/TypeScript/C#.
+- Implemented the program using Java.
 - The game should allow negative scenarios of events development with a certain probability.
-- If possible, use Spring or equivalents for other languages as DI.
-- Use Hibernate or equivalents for other languages as ORM.
+- Used Spring as DI container.

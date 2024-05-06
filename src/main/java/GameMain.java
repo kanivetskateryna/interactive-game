@@ -9,8 +9,18 @@ import strategy.HelicopterStrategy;
 import strategy.NewsStrategy;
 import visitor.NodeVisitor;
 
+/**
+ * This is the main class for the game.
+ */
 public class GameMain {
 
+    /**
+     * The main method which is the entry point for the game.
+     * It sets up the application context, gets the necessary beans,
+     * starts the game, and handles the user's initial choice.
+     *
+     * @param args command-line arguments (not used)
+     */
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
                 TreeNodeConfig.class,
